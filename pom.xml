@@ -6,6 +6,7 @@
 	<version>1.0</version>
 
 	<modules>
-		<module>chapter_001</module>
+		<module>chapter_001\01</module>
+		<module>chapter_001\02</module>
 	</modules>
 </project>

@@ -1,7 +1,7 @@
 <project>
         <modelVersion>4.0.0</modelVersion>
 	<groupId>ru.agrin</groupId>
-        <artifactId>chapter_001</artifactId>
+        <artifactId>01</artifactId>
         <packaging>jar</packaging>
 	<version>1.0</version>
 
