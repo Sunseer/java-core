@@ -8,5 +8,6 @@
 	<modules>
 		<module>chapter_001\01</module>
 		<module>chapter_001\02</module>
+		<module>chapter_001\03</module>
 	</modules>
 </project>
