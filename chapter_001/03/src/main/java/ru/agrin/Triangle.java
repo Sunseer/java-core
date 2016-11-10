@@ -14,12 +14,13 @@ public class Triangle {
     public double area() {
         //calculate the triangle area
         double result = 0.0;
-	
-        if ((a.distanceTo(b) < b.distanceTo(c) + c.distanceTo(a)) &&
-	(b.distanceTo(c) < c.distanceTo(a) + a.distanceTo(b)) &&
-	(c.distanceTo(a) < a.distanceTo(b) + b.distanceTo(c))) {
-            double sp = (a.distanceTo(b) + b.distanceTo(c) + c.distanceTo(a)) / 2.0;
-            result = Math.sqrt(sp * (sp - a.distanceTo(b)) * (sp - b.distanceTo(c)) * (sp - c.distanceTo(a)));
+	double ab = a.distanceTo(b);
+	double bc = b.distanceTo(c);
+	double ca = c.distanceTo(a);
+
+        if ((ab < bc + ca) && (bc < ca + ab) && (ca < ab + bc)) {
+            double sp = (ab + bc + ca) / 2.0;
+            result = Math.sqrt(sp * (sp - ab) * (sp - bc) * (sp - ca));
         }
         return result;
     }
