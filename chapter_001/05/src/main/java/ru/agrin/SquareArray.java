@@ -5,8 +5,8 @@ package ru.agrin;
  */
 public class SquareArray {
     int[][] values = new int[][]{{1, 2, 3},
-                                        {10, 20, 30},
-                                        {100, 200, 300}
+                                {10, 20, 30},
+                                {100, 200, 300}
     };
 
     int[][] turnArray(int[][] array) {
