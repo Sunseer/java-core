@@ -1,6 +1,7 @@
 package ru.agrin;
 
 import org.junit.Test;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 /**
  * Created by grin on 18.11.2016.
@@ -8,10 +9,9 @@ import static org.junit.Assert.*;
 public class BubbleTest {
     @Test
     public void testBubbleSort() {
-        Bubble bubble = new Bubble();
+        int[] array = new int[] {1, 2, 4, 5, 8};
+	Bubble bubble = new Bubble();
         int[] result = bubble.bubbleSort(bubble.values);
-        for (int i = 0; i < result.length - 1 ; i++) {
-            assertTrue(result[i] <= result[i + 1]);
-        }
+        assertThat(result, is(array));
     }
 }

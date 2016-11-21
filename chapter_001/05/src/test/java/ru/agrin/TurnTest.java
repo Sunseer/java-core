@@ -10,13 +10,9 @@ import static org.junit.Assert.*;
 public class TurnTest {
     @Test
     public void testBack() {
-        int[] array = new int[] {1, 2, 3, 4, 5};
-        int[] arrayResult = array.clone();
+        int[] array = new int[] {5, 4, 3, 2, 1};
         Turn turn = new Turn();
-        arrayResult = turn.back(arrayResult);
-
-        for (int i = 0; i < array.length; i++) {
-            assertThat(arrayResult[i], is (array[array.length - 1 - i]));
-        }
+        int[] result = turn.back(turn.array);
+        assertThat(result, is (array));
     }
 }

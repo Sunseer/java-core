@@ -4,6 +4,9 @@ package ru.agrin;
  * Created by grin on 18.11.2016.
  */
 public class Turn {
+
+    int[] array = new int[] {1, 2, 3, 4, 5};    
+
     public int[] back(int[] array) {
         for (int i = 0; i < array.length / 2; i++) {
             int temp = array[i];
