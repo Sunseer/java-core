@@ -1,14 +1,15 @@
 package ru.agrin;
 
 /**
+ * Класс для поворота по часовой стрелке на 90 градусов двумерного массива
  * Created by grin on 21.11.2016.
  */
-public class SquareArray {
-    int[][] values = new int[][]{{1, 2, 3},
-                                {10, 20, 30},
-                                {100, 200, 300}
-    };
+class SquareArray {
 
+    /**
+     * Поворот по часов стрелке на 90 градусов двумерного массива
+     * @param array входящий двумерный массив
+     */
     int[][] turnArray(int[][] array) {
         for (int i  = 0; i < array.length; i ++)
             for (int j = i; j < array.length; j++) {
