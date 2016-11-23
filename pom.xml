@@ -1,8 +1,8 @@
 <project>
-        <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.agrin</groupId>
-        <artifactId>java-core</artifactId>
-        <packaging>pom</packaging>
+	<artifactId>java-core</artifactId>
+	<packaging>pom</packaging>
 	<version>1.0</version>
 
 	<modules>
@@ -11,5 +11,6 @@
 		<module>chapter_001\03</module>
 		<module>chapter_001\04</module>
 		<module>chapter_001\05</module>
+		<module>chapter_001\06</module>
 	</modules>
 </project>
