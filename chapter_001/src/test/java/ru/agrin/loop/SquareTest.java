@@ -21,6 +21,7 @@ public class SquareTest
 		System.setOut(new PrintStream(outputStream));
 		Square square = new Square(1f, 2f, 3f);
 		square.show(1, 1, 1);
-		assertThat(outputStream.toString(), is ("x = 1; y = 6.0\r\n"));
+		String sep = System.getProperty("line.separator");
+		assertThat(outputStream.toString(), is ("x = 1; y = 6.0" + sep));
 	}
 }
