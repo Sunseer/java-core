@@ -76,12 +76,14 @@ public class Tracker {
      * @param id - номер заявки.
      * @param bid - отредактированная заявка.
      */
-    public void editBid(String id, Bid bid) {
+    public Bid editBid(String id, Bid bid) {
         for (int i = 0; i < countBids; i++) {
             if (bids[i] != null && bids[i].getId().equals(id)) {
                 bids[i] = bid;
+                break;
             }
         }
+        return bid;
     }
 
     /**
@@ -94,7 +96,7 @@ public class Tracker {
         Bid[] result = new Bid[countBids];
         for (int i = 0; i < countBids; i++) {
             if (bids[i] != null && bids[i].getName().equals(name)) {
-                result[countOfBidsFound++] = result[i];
+                result[countOfBidsFound++] = bids[i];
             }
         }
         return result;
@@ -111,7 +113,7 @@ public class Tracker {
         Bid[] result = new Bid[countBids];
         for (int i = 0; i < countBids; i++) {
             if (bids[i] != null && bids[i].getCreate() >= startDate && bids[i].getCreate() <= endDate) {
-                result[countOfBidsFound++] = result[i];
+                result[countOfBidsFound++] = bids[i];
             }
         }
         return result;
