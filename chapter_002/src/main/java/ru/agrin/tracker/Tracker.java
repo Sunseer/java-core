@@ -1,5 +1,8 @@
 package ru.agrin.tracker;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -25,7 +28,7 @@ public class Tracker {
      * @return заявку.
      */
     public Bid addBid(Bid bid) {
-        bid.setCreate(System.currentTimeMillis());
+        bid.setCreate(convertTime(System.currentTimeMillis()));
         bid.setId(generateId());
         this.bids[countBids++] = bid;
         return bid;
@@ -112,7 +115,7 @@ public class Tracker {
         int countOfBidsFound = 0;
         Bid[] result = new Bid[countBids];
         for (int i = 0; i < countBids; i++) {
-            if (bids[i] != null && bids[i].getCreate() >= startDate && bids[i].getCreate() <= endDate) {
+            if (bids[i] != null && Long.valueOf(bids[i].getCreate()) >= startDate && Long.valueOf(bids[i].getCreate()) <= endDate) {
                 result[countOfBidsFound++] = bids[i];
             }
         }
@@ -128,4 +131,11 @@ public class Tracker {
         Bid bid = this.findById(id);
         bid.addComment(comment);
     }
+
+    public String convertTime(long time) {
+        Date date = new Date(time);
+        Format format = new SimpleDateFormat("dd MM yyyy HH:mm:ss");
+        return format.format(date);
+    }
+
 }

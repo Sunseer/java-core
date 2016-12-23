@@ -7,7 +7,7 @@ package ru.agrin.tracker;
 public class Bid {
     private String name;
     private String description;
-    private long create;
+    private String create;
     private String id;
     private String[] comments = new String[10];
     private int position = 0;
@@ -25,7 +25,7 @@ public class Bid {
         return description;
     }
 
-    public long getCreate() {
+    public String getCreate() {
         return create;
     }
 
@@ -45,7 +45,7 @@ public class Bid {
         this.description = description;
     }
 
-    public void setCreate(long create) {
+    public void setCreate(String create) {
         this.create = create;
     }
 
@@ -60,6 +60,17 @@ public class Bid {
     public void addComment(String comment) {
         this.comments[position++] = comment;
     }
+
+    @Override
+    public String toString() {
+        return "№: " + getId() + "; " +
+                "Имя: " + getName() + "; " +
+                "Описание: " + getDescription() + "; " +
+                "Время создания: " + getCreate() + "; " +
+                "Комментарии: ";
+    }
+
+
 }
 
 
