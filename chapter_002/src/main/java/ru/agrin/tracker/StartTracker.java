@@ -6,6 +6,12 @@ package ru.agrin.tracker;
  */
 public class StartTracker {
     private Input input;
+    private final Tracker tracker;
+
+    public StartTracker(Input input, Tracker tracker) {
+        this.input = input;
+        this.tracker = tracker;
+    }
 
     private final String[] QUESTIONS = new String[] {
             "1. Добавление заявки.",
@@ -20,18 +26,13 @@ public class StartTracker {
     };
 
     /**
-     * Показывает список меню.
+     * Вывод на экран списка меню.
      */
-    private void showMenu() {
+    public void showMenu() {
         for (String item : QUESTIONS) {
             System.out.println(item);
         }
     }
-
-    public StartTracker(Input input) {
-        this.input = input;
-    }
-    private Tracker tracker = new Tracker();
 
     /**
      * Обработка консольного ввода пользователя.
@@ -85,10 +86,11 @@ public class StartTracker {
     public static void main(String[] args) {
 
         Input input = new ConsoleInput();
-        StartTracker tracker = new StartTracker(input);
-        tracker.showMenu();
+        Tracker tracker = new Tracker();
+        StartTracker startTracker = new StartTracker(input, tracker);
+        startTracker.showMenu();
         while(true) {
-            tracker.init();
+            startTracker.init();
             System.out.println();
         }
     }
