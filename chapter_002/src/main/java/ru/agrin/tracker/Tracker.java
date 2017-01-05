@@ -82,7 +82,13 @@ public class Tracker {
     public Bid editBid(String id, Bid bid) {
         for (int i = 0; i < countBids; i++) {
             if (bids[i] != null && bids[i].getId().equals(id)) {
+                String[] oldComments = bids[i].getComments();
+                String oldId = bids[i].getId();
+                String oldCreate = bids[i].getCreate();
                 bids[i] = bid;
+                bids[i].setComments(oldComments);
+                bids[i].setId(oldId);
+                bids[i].setCreate(oldCreate);
                 break;
             }
         }

@@ -1,5 +1,7 @@
 package ru.agrin.tracker;
 
+import java.util.Arrays;
+
 /**
  * Модель заявки.
  * Created by grin on 15.12.2016.
@@ -67,7 +69,7 @@ public class Bid {
                 "Имя: " + getName() + "; " +
                 "Описание: " + getDescription() + "; " +
                 "Время создания: " + getCreate() + "; " +
-                "Комментарии: ";
+                "Комментарии: " + Arrays.toString(getComments());
     }
 
 
