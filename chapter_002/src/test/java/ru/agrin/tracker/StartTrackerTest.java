@@ -16,7 +16,7 @@ public class StartTrackerTest {
     @Test
     public void initAddBidTest() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[] {"1", "name", "desc", "выйти"});
+        Input input = new StubInput(new String[] {"0", "name", "desc", "да"});
         new StartTracker(input, tracker).init();
         assertThat(tracker.listOfBids()[0].getName(), is("name"));
         assertThat(tracker.listOfBids()[0].getDescription(), is("desc"));
@@ -30,8 +30,8 @@ public class StartTrackerTest {
         Tracker tracker = new Tracker();
         Bid bid01 = tracker.addBid(new Bid("name01", "desc01"));
         Bid bid02 = tracker.addBid(new Bid("name02", "desc02"));
-        Input input = new StubInput(new String[] {"2", bid02.getId()});
-        new StartTracker(input, tracker);
+        Input input = new StubInput(new String[] {"1", bid02.getId(), "да"});
+        new StartTracker(input, tracker).init();
         String result = tracker.findById(bid02.getId()).getName();
         assertThat(result, is("name02"));
     }
@@ -43,7 +43,7 @@ public class StartTrackerTest {
     public void initRemoveByIdTest() {
         Tracker tracker = new Tracker();
         Bid bid = tracker.addBid(new Bid("name", "desc"));
-        Input input = new StubInput(new String[] {"3", bid.getId(), "выйти"});
+        Input input = new StubInput(new String[] {"2", bid.getId(), "да"});
         new StartTracker(input, tracker).init();
         assertThat(tracker.listOfBids(), is(new Bid[]{null}));
     }
@@ -55,7 +55,7 @@ public class StartTrackerTest {
     public void initEditBidTest() {
         Tracker tracker = new Tracker();
         Bid bid = tracker.addBid(new Bid("name", "desc"));
-        Input input = new StubInput(new String[] {"4", bid.getId(), "editName", "editDesc", "выйти"});
+        Input input = new StubInput(new String[] {"3", bid.getId(), "editName", "editDesc", "да"});
         new StartTracker(input, tracker).init();
         assertThat(tracker.listOfBids()[0].getName(), is("editName"));
     }
@@ -67,7 +67,7 @@ public class StartTrackerTest {
     public void initAddCommentToBidTest() {
         Tracker tracker = new Tracker();
         Bid bid = tracker.addBid(new Bid("name", "desc"));
-        Input input = new StubInput(new String[] {"5", bid.getId(), "comment", "выйти"});
+        Input input = new StubInput(new String[] {"4", bid.getId(), "comment", "да"});
         new StartTracker(input, tracker).init();
         assertThat(tracker.listOfBids()[0].getComments()[0], is("comment"));
     }
@@ -81,7 +81,7 @@ public class StartTrackerTest {
         Bid bid01 = tracker.addBid(new Bid("name01", "desc01"));
         Bid bid02 = tracker.addBid(new Bid("name02", "desc02"));
         Bid[] expected = new Bid[]{bid01, bid02};
-        Input input = new StubInput(new String[] {"6", "выйти"});
+        Input input = new StubInput(new String[] {"5", "да"});
         new StartTracker(input, tracker).init();
         assertThat(tracker.listOfBids(), is(expected));
     }
@@ -92,7 +92,7 @@ public class StartTrackerTest {
     @Test
     public void initFilteredListOfBidsByNameTest() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[] {"1", "name", "desc", "7", "выйти"});
+        Input input = new StubInput(new String[] {"0", "name", "desc", "нет", "6", "name", "да"});
         new StartTracker(input, tracker).init();
         String result = tracker.filteredListOfBidsByName("name")[0].getName();
         assertThat(result, is("name"));

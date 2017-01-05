@@ -6,16 +6,18 @@ package ru.agrin.tracker;
  */
 public class StartTracker {
     private Input input;
+    private Tracker tracker;
 
-    public StartTracker(Input input) {
+    public StartTracker(Input input, Tracker tracker) {
         this.input = input;
+        this.tracker = tracker;
     }
 
     /**
      * Запуск меню.
      */
     public void init() {
-        Tracker tracker = new Tracker();
+
         MenuTracker menu = new MenuTracker(this.input, tracker);
         menu.fillActions();
         do {
@@ -27,8 +29,8 @@ public class StartTracker {
     }
 
     public static void main(String[] args) {
-
+        Tracker tracker = new Tracker();
         Input input = new ConsoleInput();
-        new StartTracker(input).init();
+        new StartTracker(input, tracker).init();
     }
 }
