@@ -1,13 +1,14 @@
 package ru.agrin.tracker;
 
 /**
+ * Меню программы.
  * Created by grin on 04.01.2017.
  */
 public class MenuTracker {
 
     private Input input;
     private Tracker tracker;
-    private UserAction[] actions = new UserAction[10];
+    private UserAction[] actions = new UserAction[8];
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -61,7 +62,22 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.out.println(tracker.findById(input.ask("Введите номер заявки:")));
+            String id = input.ask("Введите номер заявки:");
+
+            Bid[] result = tracker.listOfBids();
+            Bid findedBid = new Bid("Заявка не найдена", "");
+            for (Bid bid : result) {
+                if (bid.getId().equals(id)) {
+                    findedBid = bid;
+                    break;
+                }
+            }
+            if (!findedBid.getName().equals("Заявка не найдена")) {
+                System.out.println(findedBid);
+            }
+            else {
+                System.out.println("Заявки с таким номером не существует.");
+            }
         }
 
         @Override
