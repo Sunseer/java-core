@@ -5,7 +5,6 @@ package ru.agrin.tracker;
  * Created by grin on 21.12.2016.
  */
 public class StartTracker {
-    private int[] ranges = new int[] {0,1,2,3,4,5,6,7};
     private Input input;
     private final Tracker tracker;
 
@@ -19,6 +18,7 @@ public class StartTracker {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, tracker);
+        final int[] ranges = new int[]{0, 1, 2, 3, 4, 5, 6, 7};
         menu.fillActions();
         do {
             menu.showMenu();
