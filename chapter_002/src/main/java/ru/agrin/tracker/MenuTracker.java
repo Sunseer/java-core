@@ -15,6 +15,10 @@ public class MenuTracker {
         this.tracker = tracker;
     }
 
+    public UserAction[] getActions() {
+        return actions;
+    }
+
     public void fillActions() {
         this.actions[0] = new AddBid();
         this.actions[1] = new FindById();

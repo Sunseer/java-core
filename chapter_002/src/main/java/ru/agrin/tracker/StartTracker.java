@@ -14,11 +14,25 @@ public class StartTracker {
     }
 
     /**
+     * Запись всех порядковых номеров меню в массив
+     * @return range - массив порядковых номеров меню.
+     */
+    public int[] ranges() {
+        MenuTracker menuTracker = new MenuTracker(this.input, tracker);
+        menuTracker.fillActions();
+        int[] range = new int[menuTracker.getActions().length];
+        for (int i = 0; i< range.length; i++) {
+            range[i] = menuTracker.getActions()[i].key();
+        }
+        return range;
+    }
+
+    /**
      * Запуск меню.
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, tracker);
-        final int[] ranges = new int[]{0, 1, 2, 3, 4, 5, 6, 7};
+        final int[] ranges = ranges();
         menu.fillActions();
         do {
             menu.showMenu();
