@@ -1,4 +1,4 @@
-package ru.agrin.tracker;
+package ru.agrin.tracker.start;
 
 /**
  * Интерфейс ввода.

@@ -1,4 +1,6 @@
-package ru.agrin.tracker;
+package ru.agrin.tracker.models;
+
+import ru.agrin.tracker.models.Bid;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;

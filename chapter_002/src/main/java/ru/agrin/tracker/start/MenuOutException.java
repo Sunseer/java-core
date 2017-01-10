@@ -1,4 +1,4 @@
-package ru.agrin.tracker;
+package ru.agrin.tracker.start;
 
 /**
  * Created by grin on 06.01.2017.

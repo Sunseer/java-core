@@ -1,4 +1,4 @@
-package ru.agrin.tracker;
+package ru.agrin.tracker.start;
 
 /**
  * Имитация консольного ввода пользователем.
@@ -6,7 +6,7 @@ package ru.agrin.tracker;
  */
 public class StubInput implements Input {
     private String[] answers;
-    private int position = 0;
+    private int position = 1;
 
     public StubInput(String[] answers) {
         this.answers = answers;
@@ -20,6 +20,6 @@ public class StubInput implements Input {
     @Override
     public int ask(String question, int[] range) {
         //throw new UnsupportedOperationException("Операция не поддерживается");
-        return -1;
+        return Integer.valueOf(answers[0]);
     }
 }

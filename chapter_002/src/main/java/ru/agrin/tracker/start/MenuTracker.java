@@ -1,4 +1,7 @@
-package ru.agrin.tracker;
+package ru.agrin.tracker.start;
+
+import ru.agrin.tracker.models.Bid;
+import ru.agrin.tracker.models.Tracker;
 
 /**
  * Меню программы.
@@ -49,7 +52,8 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            tracker.addBid(new Bid(input.ask("Введите название заявки:"), input.ask("Введите описание заявки:")));
+            tracker.addBid(new Bid(input.ask("Введите название заявки:"),
+                    input.ask("Введите описание заявки:")));
         }
 
         @Override
@@ -66,18 +70,9 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            String id = input.ask("Введите номер заявки:");
-
-            Bid[] result = tracker.listOfBids();
-            Bid findedBid = new Bid("Заявка не найдена", "");
-            for (Bid bid : result) {
-                if (bid.getId().equals(id)) {
-                    findedBid = bid;
-                    break;
-                }
-            }
-            if (!findedBid.getName().equals("Заявка не найдена")) {
-                System.out.println(findedBid);
+            Bid result = tracker.findById(input.ask("Введите номер заявки:"));
+            if (result != null) {
+                System.out.println(result);
             }
             else {
                 System.out.println("Заявки с таким номером не существует.");
@@ -115,7 +110,8 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            tracker.editBid(input.ask("Введите номер заявки:"), new Bid(input.ask("Отредактируйте название:"), input.ask("Отредактируйте описание:")));
+            tracker.editBid(input.ask("Введите номер заявки:"),
+                    new Bid(input.ask("Отредактируйте название:"), input.ask("Отредактируйте описание:")));
         }
 
         @Override
@@ -191,7 +187,8 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("Укажите дату в формате dd MM yyyy HH:mm:ss");
-            tracker.filteredListOfBidsByDate(Long.valueOf(input.ask("Дата начала")), Long.valueOf(input.ask("Дата окончания")));
+            tracker.filteredListOfBidsByDate(Long.valueOf(input.ask("Дата начала")),
+                    Long.valueOf(input.ask("Дата окончания")));
         }
 
         @Override

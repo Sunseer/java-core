@@ -1,4 +1,6 @@
-package ru.agrin.tracker;
+package ru.agrin.tracker.start;
+
+import ru.agrin.tracker.models.Tracker;
 
 /**
  * Created by grin on 04.01.2017.

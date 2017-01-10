@@ -1,6 +1,8 @@
-package ru.agrin.tracker;
+package ru.agrin.tracker.models;
 
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Модель заявки.
@@ -69,10 +71,10 @@ public class Bid {
                 "Имя: " + getName() + "; " +
                 "Описание: " + getDescription() + "; " +
                 "Время создания: " + getCreate() + "; " +
-                "Комментарии: " + Arrays.toString(getComments());
+                "Комментарии: " + Arrays.stream(getComments())
+                .filter(Objects::nonNull)
+                .collect(Collectors.joining(", "));
     }
-
-
 }
 
 

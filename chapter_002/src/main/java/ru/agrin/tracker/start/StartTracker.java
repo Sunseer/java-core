@@ -1,4 +1,6 @@
-package ru.agrin.tracker;
+package ru.agrin.tracker.start;
+
+import ru.agrin.tracker.models.Tracker;
 
 /**
  * Запуск трекера.
@@ -21,7 +23,7 @@ public class StartTracker {
         MenuTracker menuTracker = new MenuTracker(this.input, tracker);
         menuTracker.fillActions();
         int[] range = new int[menuTracker.getActions().length];
-        for (int i = 0; i< range.length; i++) {
+        for (int i = 0; i < range.length; i++) {
             range[i] = menuTracker.getActions()[i].key();
         }
         return range;

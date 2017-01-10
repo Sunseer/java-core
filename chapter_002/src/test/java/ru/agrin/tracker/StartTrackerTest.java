@@ -1,6 +1,12 @@
 package ru.agrin.tracker;
 
 import org.junit.Test;
+import ru.agrin.tracker.models.Bid;
+import ru.agrin.tracker.models.Tracker;
+import ru.agrin.tracker.start.Input;
+import ru.agrin.tracker.start.StartTracker;
+import ru.agrin.tracker.start.StubInput;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
